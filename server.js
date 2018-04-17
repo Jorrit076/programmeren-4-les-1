@@ -1,14 +1,14 @@
-var http = require('http');
+let http = require('http');
 
-function onRequest(request, response) {
+let onRequest = function(request, response) {
     console.log('onRequest called');
     response.writeHead(200, {'Content-Type': 'text/json'});
     response.end(getData());
-}
+};
 
-function getData() {
+let getData = function() {
     console.log('getData called');
-    var json = {
+    let json = {
         person: {
             name : "Jorrit",
             age  : "20"
@@ -17,8 +17,9 @@ function getData() {
     };
 
     return JSON.stringify(json);
-}
+};
 
-http.createServer(onRequest).listen(process.env.PORT || 3000);
+let port = process.env.PORT || 3000;
+http.createServer(onRequest).listen(port);
 
-console.log('Server created on port 3000');
+console.log('Server created on port ' + port);
