@@ -1,3 +1,6 @@
+
+const Person = require('./classes/Person.js');
+
 let onRequest = function(request, response) {
     console.log('onRequest called');
     response.writeHead(200, {'Content-Type': 'text/json'});
@@ -6,13 +9,10 @@ let onRequest = function(request, response) {
 
 let getData = function() {
     console.log('getData called');
-    let json = {
-        person: {
-            name : "Jorrit",
-            age  : "20"
-        }
 
-    };
+    let json = [];
+    json.push(new Person("Jorrit", "Meeuwissen", 20));
+    json.push(new Person("Maud", "Jacobs", 18));
 
     return JSON.stringify(json);
 };
