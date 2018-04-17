@@ -1,5 +1,3 @@
-let http = require('http');
-
 let onRequest = function(request, response) {
     console.log('onRequest called');
     response.writeHead(200, {'Content-Type': 'text/json'});
@@ -19,6 +17,7 @@ let getData = function() {
     return JSON.stringify(json);
 };
 
+let http = require('http');
 let port = process.env.PORT || 3000;
 http.createServer(onRequest).listen(port);
 
