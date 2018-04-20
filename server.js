@@ -16,6 +16,6 @@ app.get('/', function (req, res) {
     res.send(JSON.stringify(data));
 });
 
-app.listen(port);
-
-console.log('Server created on port ' + port);
+app.listen(port, () => {
+    console.log('Server created on port ' + port);
+});
